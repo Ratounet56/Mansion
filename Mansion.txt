@@ -1,4 +1,130 @@
-
+@echo off
+CHCP 1252 > nul
+cls
+:FS
+	color 9
+	cls
+		echo Avant de commencer, Appuie sur la touche F11 de ton clavier
+		echo pour passer en plein écran
+echo.
+			timeout /T 15 >nul
+				batbox /g 1 14 /d "appuie sur entrer pour passer à la suite."
+echo.
+echo.
+	batbox /k
+		IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
+		IF %errorlevel%== 13 goto :RULES
+		IF not %errorlevel%== 13 goto :FS
+		IF not %errorlevel%== 27 goto :FS
+		pause>nul
+echo.
+:RULES
+		color 9
+		cls
+echo.
+			batbox /g 105 25 /d "Bienvenue sur Mansion !"
+				timeout /T 2 >nul
+			batbox /g 101 27 /d "Les règles du jeu sont simples."
+				timeout /T 2 >nul
+			batbox /g 70 29 /d "Il suffit de te laisser guider par l'histoire et de faire des choix lorsque le jeu te le demande."
+				timeout /T 2 >nul
+			batbox /g 74 31 /d "Si tu souhaites quitter le jeu, attends la fin de l'action et appuie sur la touche <ECHAP>"
+				timeout /T 2 >nul
+			batbox /g 70 33 /d "Ne fais pas <ALT+F4> pour quitter le jeu, sinon la musique continuera de se jouer en arrière plan."
+				timeout /T 2 >nul
+			batbox /g 73 35 /d "Si tel est le cas. Vas dans le répertoire d'installation du jeu et ouvre le fichier ""debug"""."
+				timeout /T 2 >nul
+			batbox /g 109 37 /d "Bon jeu à toi !"
+echo.			
+					timeout /T 2 >nul
+						batbox /g 1 50 /d "appuie sur entrer pour passer à la suite."
+echo.
+	batbox /k
+		IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
+		IF %errorlevel%== 13 goto :title
+		IF not %errorlevel%== 13 goto :RULES
+		IF not %errorlevel%== 27 goto :RULES
+		pause>nul
+echo.
+:TITLE 
+	color c
+	cls
+start "" "C:\Program Files (x86)\Mansion\VBScripts\suspense.vbs"
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.	
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo 						MMMMMMMM               MMMMMMMM                                                      iiii                                     
+echo 						M:::::::M             M:::::::M                                                     i::::i                                    
+echo 						M::::::::M           M::::::::M                                                      iiii                                     
+echo 						M:::::::::M         M:::::::::M                                                                                               
+echo 						M::::::::::M       M::::::::::M  aaaaaaaaaaaaa  nnnn  nnnnnnnn        ssssssssss   iiiiiii    ooooooooooo   nnnn  nnnnnnnn    
+echo 						M:::::::::::M     M:::::::::::M  a::::::::::::a n:::nn::::::::nn    ss::::::::::s  i:::::i  oo:::::::::::oo n:::nn::::::::nn  
+echo 						M:::::::M::::M   M::::M:::::::M  aaaaaaaaa:::::an::::::::::::::nn ss:::::::::::::s  i::::i o:::::::::::::::on::::::::::::::nn 
+echo 						M::::::M M::::M M::::M M::::::M           a::::ann:::::::::::::::ns::::::ssss:::::s i::::i o:::::ooooo:::::onn:::::::::::::::n
+echo 						M::::::M  M::::M::::M  M::::::M    aaaaaaa:::::a  n:::::nnnn:::::n s:::::s  ssssss  i::::i o::::o     o::::o  n:::::nnnn:::::n
+echo 						M::::::M   M:::::::M   M::::::M  aa::::::::::::a  n::::n    n::::n   s::::::s       i::::i o::::o     o::::o  n::::n    n::::n
+echo 						M::::::M    M:::::M    M::::::M a::::aaaa::::::a  n::::n    n::::n      s::::::s    i::::i o::::o     o::::o  n::::n    n::::n
+echo 						M::::::M     MMMMM     M::::::Ma::::a    a:::::a  n::::n    n::::nssssss   s:::::s  i::::i o::::o     o::::o  n::::n    n::::n
+echo 						M::::::M               M::::::Ma::::a    a:::::a  n::::n    n::::ns:::::ssss::::::si::::::io:::::ooooo:::::o  n::::n    n::::n
+echo 						M::::::M               M::::::Ma:::::aaaa::::::a  n::::n    n::::ns::::::::::::::s i::::::io:::::::::::::::o  n::::n    n::::n
+echo 						M::::::M               M::::::M a::::::::::aa:::a n::::n    n::::n s:::::::::::ss  i::::::i oo:::::::::::oo   n::::n    n::::n
+echo 						MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaa nnnnnn    nnnnnn  sssssssssss    iiiiiiii   ooooooooooo     nnnnnn    nnnnnn
+echo.
+		timeout /T 2 >nul
+			batbox /g 1 50 /c 0x9 /d "appuie sur entrer pour passer à la suite."
+echo.					
+	batbox /k
+		IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
+		IF %errorlevel%== 13 goto :INTRO
+		IF not %errorlevel%== 13 goto :TITLE
+		IF not %errorlevel%== 27 goto :TITLE
+		pause>nul
+echo.
+:INTRO
+	color 9
+	cls
+echo.	
+		batbox /g 100 15 /d "Bonjour..."
+			timeout /T 2 >nul
+		batbox /g 90 17 /d "Je m'appelle Lucas, j'ai 17 ans."
+			timeout /T 2 >nul
+		batbox /g 54 19 /d "Aimant l'exploration urbaine et les sensations fortes, il m'arrive parfois de me mettre dans de sales draps."
+			timeout /T 2 >nul
+echo.			
+			batbox /g 105  25 /d "."
+				timeout /T 1 >nul
+			batbox /g 104 26 /d "..."
+				timeout /T 1 >nul
+			batbox /g 103 27 /d "....."
+				timeout /T 2 >nul
+echo.				
+				batbox /g 68 31 /d "Mais ce soir tout ne s'est réelement pas déroulé comme je l'imaginais."
+echo.	
+		timeout /T 2 >nul
+			batbox /g 1 50 /d "appuie sur entrer pour passer à la suite."
+echo.					
+	batbox /k
+		IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
+		IF %errorlevel%== 13 goto :INTRO_2
+		IF not %errorlevel%== 13 goto :INTRO
+		IF not %errorlevel%== 27 goto :INTRO
+		pause>nul	
+echo.	
 :INTRO_2
 	color 9
 	cls
@@ -25,90 +151,3 @@ echo.
 		IF not %errorlevel%== 27 goto :INTRO_2
 		pause>nul
 echo.
-:INTRO_3
-	color 2
-	cls
-echo.		
-		batbox /g 74 30 /d "Après avoir fait le tour du manoir, deux possibilités s'offrent à moi."
-			timeout /T 2 >nul
-		batbox /g 47 32 /d "Je peux tenter d'entrer par la porte principale, ou par une porte dérobée qu'il m'a semblé apercevoir à l'arrière de la demeure."
-			timeout /T 2 >nul
-		batbox /g 105 40 /d "Porte Principale (1)"															
-			timeout /T 2 >nul
-		batbox /g 105 42 /d "Porte Dérobée    (2)"
-echo.
-		timeout /T 2 >nul
-			batbox /g 1 50 /d "Tape sur la touche (1) ou (2) de ton pavé numérique pour continuer"
-echo.		
-	batbox /k
-		IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
-		IF %errorlevel%== 49 goto :1C1
-		IF %errorlevel%== 50 goto :1C2
-		IF not %errorlevel%== 27 goto :INTRO_3
-		IF not %errorlevel%== 49 goto :INTRO_3
-		IF not %errorlevel%== 50 goto :INTRO_3
-		pause>nul
-echo.
-:1C1
-rem CHOIX 1 : la porte principale
-	color 9
-	cls
-echo.
-		start "" "C:\Program Files (x86)\Mansion\VBScripts\grincement.vbs" >nul
-			batbox /g 70 20 /d "La porte est très difficile à ouvrir mais je parviens tout de même à entrer."
-				timeout /T 3 /NOBREAK >nul
-echo.	
-		start "" "C:\Program Files (x86)\Mansion\VBScripts\suspense.vbs"
-			batbox /g 74 22 /d "Une fois à l'intérieur, je me retrouve dans une entrée GIGANTESEQUE !"
-				timeout /T 2 >nul
-			batbox /g 40 24 /d "Il fait froid et humide, je peux apercevoir avec ma lampe torche que tout est encore intact. Comme si le temps n'avait pas d'effet sur ce lieu."
-				timeout /T 2 >nul
-			batbox /g 65 26 /d "La décoration est vraiment lugubre, j'ai des frissons et je suis assez mal à l'aise."
-				timeout /T 1 >nul
-echo.				
-				batbox /g 105  28 /d "."
-					timeout /T 1 >nul
-				batbox /g 104 29 /d "..."
-					timeout /T 1 >nul
-				batbox /g 103 30 /d "....."
-					timeout /T 4 >nul
-echo.					
-					batbox /g 90 32 /d "Enfin bref, il faut que j'avance."
-						timeout /T 2 >nul
-					batbox /g 60 36 /d "En face de moi se dresse un énorme escalier ainsi qu'un couloir de chaque côté de ce dernier."
-						timeout /T 2 >nul
-echo.		
-			timeout /T 2 >nul
-				batbox /g 1 50 /d "appuie sur entrer pour passer à la suite."
-echo.		
-		batbox /k
-			IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
-			IF %errorlevel%== 13 goto :1C1bis
-			IF not %errorlevel%== 13 goto 1C1
-			IF not %errorlevel%== 27 goto 1C1
-			pause>nul
-echo.
-:1C1bis
-	color 2
-	cls
-echo.
-		batbox /g 90 30 /d "J'avoue ne pas savoir par où commencer..."
-echo.
-		batbox /g 100 35 /d "Escalier        (1)"
-		batbox /g 100 36 /d "Couloir droit   (2)"
-		batbox /g 100 37 /d "couloir gauche  (3)"
-echo.
-	timeout /T 2 >nul
-			batbox /g 1 50 /d "Tape sur la touche (1), (2) ou (3) de ton pavé numérique pour continuer"
-echo.		
-	batbox /k
-		IF %errorlevel%== 27 taskkill /f /im cmd.exe /im wmplayer.exe >nul
-		IF %errorlevel%== 49 goto :2C1
-		IF %errorlevel%== 50 goto :C1C2
-		IF %errorlevel%== 51 goto :C1C3
-		IF not %errorlevel%== 27 goto :1C1bis
-		IF not %errorlevel%== 49 goto :1C1bis
-		IF not %errorlevel%== 50 goto :1C1bis
-		IF not %errorlevel%== 51 goto :1C1bis
-		pause>nul
-echo.		
