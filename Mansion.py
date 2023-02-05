@@ -1,5 +1,12 @@
 import tkinter as tk
 from tkinter import PhotoImage
+import winsound
+
+
+    #MUSIC
+
+winsound.PlaySound(r"C:\Program Files (x86)\Mansion\Sounds\suspense.wav", winsound.SND_ASYNC)
+
 
     #WINDOW
 
@@ -65,19 +72,23 @@ def display_rules_button():
 
 display_rules_button()
 
+#quit_button settings
+def quit_game():
+    root.destroy()
 #quit_button
-quit_button = tk.Button(root, text="Quitter", bg="red", fg="white", font=("Lucida Console", 25))
+quit_button = tk.Button(root, text="Quitter", bg="red", fg="white", font=("Lucida Console", 25), command=quit_game)
 quit_button.pack()
 #quit_button position x/y
 quit_button.place(x=(root.winfo_screenwidth() /4)*3.3, y=root.winfo_screenheight()/2, anchor="center")
 
+#Start Game Settings
+
 #start_button
-start_button = tk.Button(root, text="Démarrer", bg="blue", fg="white", font=("Lucida Console", 40))
+start_button = tk.Button(root, text="Démarrer", bg="blue", fg="white", font=("Lucida Console", 40),)
 start_button.pack()
 #start_button position x/y
 start_button.place(x=root.winfo_screenwidth() /2, y=(root.winfo_screenheight()/2)*1.6, anchor="center")
 
-    #TITLESCREEN / RULES_BUTTON SETS
 
 
 
