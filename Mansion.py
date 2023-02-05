@@ -1,66 +1,86 @@
 import tkinter as tk
-from PIL import Image, ImageTk
-import pygame
+from tkinter import PhotoImage
+
+    #WINDOW
 
 root = tk.Tk()
 root.attributes("-fullscreen", True)
-root.title("Mansion")
-root.configure(background='black')
+root.config(bg="black")
 
 
-global image
-#Image
-global_image = Image.open(r"C:\Users\Hardware Expert\OneDrive\Documents\mansionscreen.gif")
-global_image = global_image.resize((int(global_image.width * 1.3), int(global_image.height * 1.3)))
-image = ImageTk.PhotoImage(global_image)
+    #SCREEN POSITION REFERENCE
 
-canvas = tk.Canvas(root, width=root.winfo_screenwidth(), height=root.winfo_screenheight(), bg="black")
-canvas.pack()
-canvas.create_image(root.winfo_screenwidth()/2, root.winfo_screenheight()/2, image=image)
-#Title
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
 
 
-title = tk.Label(root, text="Mansion", bg="black", fg="red", font=("Lucida Console", 150, "bold"))
-title.place(x=root.winfo_screenwidth() / 2, y=100, anchor="n")
+#TITLESCREEN / IMAGE: "mansionscreen.gif"
 
-def start_game():
-    # Démarrer le jeu
-    pass
+mansionscreen = PhotoImage(file="C:\Program Files (x86)\Mansion 0.6\Images\mansionscreen.gif")
+mansionscreen_label = tk.Label(root, image=mansionscreen, bg="black")
+mansionscreen_label.pack()
 
-#Music
-pygame.init()
-pygame.mixer.music.load("C:\Program Files (x86)\Mansion\Sounds\suspense.mp3")
-pygame.mixer.music.play()
+x = (screen_width - mansionscreen_label.winfo_width()) / 3
+y = (screen_height - mansionscreen_label.winfo_height()) / 3
 
-#Rules Button
-def game_rules():
-    canvas = tk.Canvas(root, width=root.winfo_screenwidth(), height=root.winfo_screenheight(), bg="black")
-    canvas.pack()
-    canvas.create_image(root.winfo_screenwidth()/2, root.winfo_screenheight()/2, image=image)
+mansionscreen_label.place(x=x, y=y)
 
-    rules_screen = tk.Toplevel(root)
-    rules_screen.attributes("-fullscreen", True)
-    rules_screen.configure(background='Black')
-    
-    rules_text = "Bienvenue sur Mansion !\nLes règles du jeu sont simples. \nIl suffit de te laisser guider par l'histoire et de faire des choix lorsque le jeu te le demande."
-    rules_label = tk.Label(rules_screen, text=rules_text, font=("Lucida Console", 16), bg="Black", fg="white")
-    rules_label.pack(side="top", fill="both", expand=True)
-    rules_label.place(relx=0.5, rely=0.5, anchor="center")
-    
-    back_button = tk.Button(rules_screen, text="Retour", command=rules_screen.destroy, bg="Green", font=("Lucida Console", 20, "bold"))
-    back_button.place(x=root.winfo_screenwidth() /2, y=(root.winfo_screenheight()/2)*1.6, anchor="center")
 
-rule_button = tk.Button(root, text="Règles du jeu", command=game_rules, bg="Green", fg="white", font=("Lucida Console", 20, "bold"))
-rule_button.place(x=root.winfo_screenwidth()/5.3, y=root.winfo_screenheight()/2, anchor="center")
 
-start_button = tk.Button(root, text="Démarrer", command=start_game, bg="Blue", fg="white", font=("Lucida Console", 30, "bold"))
+    #TITLESCREEN / TITLE: "Mansion"
+
+text_label = tk.Label(root, text="Mansion", font=("Lucida Console", 150), bg="black", fg="Red")
+text_label.pack()
+
+text_width = text_label.winfo_width()
+text_height = text_label.winfo_height()
+
+x = (screen_width - text_width) / 2
+y = (screen_height - text_height) / 6
+
+text_label.place(x=x, y=y, anchor="center")
+
+
+    #TITLESCREEN / BUTTONS: "Règles du jeu" / "Démarrer" / "Quitter"
+
+#display rules
+def display_rules():
+
+    image = PhotoImage(file="C:\Program Files (x86)\Mansion 0.6\Images\smoke_bg.png")
+    rules_label = tk.Label(root, text="Les règles du jeu sont simples.\nIl suffit de te laisser guider par l'histoire et de faire des choix lorsque le jeu te le demande.\nBon jeu à toi !\n\n\n\n Appuies sur la touche (échap) pour revenir à l'écran de titre.", font=("Lucida Console", 20), image=image, compound=tk.CENTER)
+    rules_label.pack()
+    rules_label.image = image
+
+    def close_rules(event):
+        rules_label.destroy()
+
+    root.bind("<Escape>", close_rules)
+
+def display_rules_button():
+
+    rules_button = tk.Button(root, text="Règles du jeu", bg="green", fg="white", font=("Lucida Console", 25), command=display_rules)
+    rules_button.pack()
+#rules_button position x/y
+    rules_button.place(x=root.winfo_screenwidth()/5.3, y=root.winfo_screenheight()/2, anchor="center")
+
+display_rules_button()
+
+#quit_button
+quit_button = tk.Button(root, text="Quitter", bg="red", fg="white", font=("Lucida Console", 25))
+quit_button.pack()
+#quit_button position x/y
+quit_button.place(x=(root.winfo_screenwidth() /4)*3.3, y=root.winfo_screenheight()/2, anchor="center")
+
+#start_button
+start_button = tk.Button(root, text="Démarrer", bg="blue", fg="white", font=("Lucida Console", 40))
+start_button.pack()
+#start_button position x/y
 start_button.place(x=root.winfo_screenwidth() /2, y=(root.winfo_screenheight()/2)*1.6, anchor="center")
 
-#Quitter
-def close_window():
-    root.destroy()
+    #TITLESCREEN / RULES_BUTTON SETS
 
-quit_button = tk.Button(root, text="Quitter", command=close_window, bg="red", fg="white", font=("Lucida Console", 20, "bold"))
-quit_button.place(x=(root.winfo_screenwidth() /4)*3.3, y=root.winfo_screenheight()/2, anchor="center")
+
+
+
 
 root.mainloop()
